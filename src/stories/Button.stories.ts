@@ -12,7 +12,7 @@ const meta: Meta<typeof Button> = {
   },
   tags: ["autodocs"],
   parameters: {
-    repositoryUrl: `https://github.com/stackblitz/docs`,
+    // repositoryUrl: `https://github.com/stackblitz/docs`,
   },
 };
 
@@ -27,7 +27,7 @@ export const Primary: Story = {
     label: "Button",
   },
   parameters: {
-    repositoryUrl: `https://github.com/stackblitz/docs`
+    // repositoryUrl: `https://github.com/stackblitz/docs`
   }
 };
 
