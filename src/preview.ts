@@ -18,7 +18,7 @@ import { PARAM_KEY } from "./constants";
 
 const preview: ProjectAnnotations<Renderer> = {
   parameters: {
-    [PARAM_KEY]: `https://github.com/stackblitz/docs`,
+    [PARAM_KEY.REPO]: `https://github.com/stackblitz/docs`,
   }
 };
 

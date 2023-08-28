@@ -28,6 +28,7 @@ export const Primary: Story = {
   },
   parameters: {
     // repositoryUrl: `https://github.com/stackblitz/docs`
+    filePath: 'docs/links.ts'
   }
 };
 
