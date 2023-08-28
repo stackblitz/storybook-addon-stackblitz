@@ -12,11 +12,7 @@ const meta: Meta<typeof Button> = {
   },
   tags: ["autodocs"],
   parameters: {
-    myAddonParameter: `
-<MyComponent boolProp scalarProp={1} complexProp={{ foo: 1, bar: '2' }}>
-  <SomeOtherComponent funcProp={(a) => a.id} />
-</MyComponent>
-`,
+    repositoryUrl: `https://github.com/stackblitz/docs`,
   },
 };
 
@@ -30,6 +26,9 @@ export const Primary: Story = {
     primary: true,
     label: "Button",
   },
+  parameters: {
+    repositoryUrl: `https://github.com/stackblitz/docs`
+  }
 };
 
 export const Secondary: Story = {

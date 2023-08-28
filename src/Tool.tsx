@@ -1,5 +1,5 @@
-import React, { memo, useCallback, useEffect } from "react";
-import { useGlobals, useStorybookApi } from "@storybook/manager-api";
+import React, { memo, useCallback, useEffect, useState } from "react";
+import { useGlobals, useParameter, useStorybookApi } from "@storybook/manager-api";
 import { Icons, IconButton } from "@storybook/components";
 import { ADDON_ID, PARAM_KEY, TOOL_ID } from "./constants";
 import { StackBlitzLogo } from "./components/StackBlitzLogo";
@@ -7,10 +7,12 @@ import CodeflowLogo from "./components/CodeflowLogo";
 
 export const Tool = memo(function MyAddonSelector() {
   const [globals, updateGlobals] = useGlobals();
+  const githubUrl = useParameter(PARAM_KEY);
   const api = useStorybookApi();
+  const [disabled, setDisabled] = useState(false)
 
   // TODO: get the github repository from the settings;
-  const githubUrl = `https://github.com/stackblitz/docs`;
+  // const githubUrl = `https://github.com/stackblitz/docs`;
 
   const currentStory = api.getCurrentStoryData();
 
@@ -18,8 +20,15 @@ export const Tool = memo(function MyAddonSelector() {
     return null;
   }
 
+  if (!githubUrl && !disabled) {
+    console.warn(`"${PARAM_KEY}" parameter not defined. Make sure to configure it in your story.`);
+    setDisabled(true);
+  } else if (githubUrl && disabled) {
+    setDisabled(false);
+  }
+
   const { id } = api.getCurrentStoryData();
-  const componentName = id.split('--')[0];
+
   const stackblitzUrl = `https://pr.new/${githubUrl}`;
 
   // api.on('STORY_CHANGED', () => {
@@ -28,14 +37,15 @@ export const Tool = memo(function MyAddonSelector() {
   //   componentName = id.split('--')[0];
   // });
 
+  console.log({disabled});
 
   return (
     <IconButton
+      disabled={disabled}
       key={TOOL_ID}
-      active={true}
       href={stackblitzUrl}
       target="_blank"
-      title="Create PR"
+      title="Open in StackBlitz and make a pull request"
     >
       <CodeflowLogo />
     </IconButton>
