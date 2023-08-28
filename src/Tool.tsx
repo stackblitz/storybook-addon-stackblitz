@@ -44,7 +44,7 @@ export const Tool = function MyAddonSelector() {
       target="_blank"
       title="Open in StackBlitz and make a pull request"
     >
-      <CodeflowLogo />
+      <CodeflowLogo style={{width: 18, margin: '0 -2px'}} />
     </IconButton>
   );
 };
