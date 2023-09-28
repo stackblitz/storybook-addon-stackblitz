@@ -9,7 +9,15 @@
 }
 .storybook-button--primary {
   color: white;
-  background-color: #1ea7fd;
+  padding: 1rem 6rem;
+  font-size: 90% !important;
+  line-height: 1.25rem;
+  height: 56px;
+  width: 200px;
+  border-radius: 30px;
+  background: linear-gradient(#d946ef, #a21caf);
+  border: solid 1px #d359e6b3;
+  box-shadow: 1px 1px 4px #000a;
 }
 .storybook-button--secondary {
   color: #333;
