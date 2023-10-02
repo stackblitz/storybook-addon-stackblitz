@@ -20,11 +20,10 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     primary: true,
-    label: "Button",
+    label: "Get my free ticket!",
   },
   parameters: {
-    repositoryUrl: 'https://github.com/sulco/viteconf-storybook-demo',
-    filePath: 'src/stories/Button.jsx'
+    filePath: 'src/stories/Button.tsx'
   }
 };
 
