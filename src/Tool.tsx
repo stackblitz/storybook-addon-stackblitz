@@ -1,38 +1,50 @@
-import React, { memo, useCallback, useEffect } from "react";
-import { useGlobals, useStorybookApi } from "@storybook/manager-api";
-import { Icons, IconButton } from "@storybook/components";
-import { ADDON_ID, PARAM_KEY, TOOL_ID } from "./constants";
+import React, { useState, MouseEvent } from "react";
+import { useParameter, useStorybookApi } from "@storybook/manager-api";
+import { IconButton } from "@storybook/components";
+import { PARAM_KEY, TOOL_ID } from "./constants";
+import CodeflowLogo from "./components/CodeflowLogo";
 
-export const Tool = memo(function MyAddonSelector() {
-  const [globals, updateGlobals] = useGlobals();
+export const Tool = function MyAddonSelector() {
+  const repositoryUrl = useParameter<string>(PARAM_KEY.REPO, null);
+  const branch = useParameter<string>(PARAM_KEY.BRANCH, 'main');
+  const filePath = useParameter<string>(PARAM_KEY.FILE_PATH, null);
+
   const api = useStorybookApi();
+  const [disabled, setDisabled] = useState(false)
 
-  const isActive = [true, "true"].includes(globals[PARAM_KEY]);
+  const currentStory = api.getCurrentStoryData();
 
-  const toggleMyTool = useCallback(() => {
-    updateGlobals({
-      [PARAM_KEY]: !isActive,
-    });
-  }, [isActive]);
+  if (!currentStory) {
+    return null;
+  }
 
-  useEffect(() => {
-    api.setAddonShortcut(ADDON_ID, {
-      label: "Toggle Measure [O]",
-      defaultShortcut: ["O"],
-      actionName: "outline",
-      showInMenu: false,
-      action: toggleMyTool,
-    });
-  }, [toggleMyTool, api]);
+  if (!repositoryUrl && !disabled) {
+    console.warn(`"${PARAM_KEY}" parameter not defined. Make sure to configure it in your story.`);
+    setDisabled(true);
+  } else if (repositoryUrl && disabled) {
+    setDisabled(false);
+  }
+
+  let stackblitzUrl = `https://pr.new/${repositoryUrl}`;
+  if (filePath) {
+    stackblitzUrl = `${stackblitzUrl}/blob/${branch}/${filePath}`;
+    /* 
+     * We've just addded `/` between all segments not caring if user already appended or prepanded them,
+     * so let's remove any possible double `//` (not preceded by `:` so we don't mess up the `https://`)
+     */
+    stackblitzUrl = stackblitzUrl.replaceAll(/(?<!:)\/\//g, '/')
+  }
 
   return (
     <IconButton
+      disabled={disabled}
       key={TOOL_ID}
-      active={isActive}
-      title="Enable my addon"
-      onClick={toggleMyTool}
+      href={stackblitzUrl}
+      onClick={(e: MouseEvent) => disabled && e.preventDefault()}
+      target="_blank"
+      title="Open in StackBlitz and make a pull request"
     >
-      <Icons icon="lightning" />
+      <CodeflowLogo style={{width: 18, margin: '0 -2px'}} />
     </IconButton>
   );
-});
+};
