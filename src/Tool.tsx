@@ -5,9 +5,9 @@ import { PARAM_KEY, TOOL_ID } from "./constants";
 import CodeflowLogo from "./components/CodeflowLogo";
 
 export const Tool = function MyAddonSelector() {
-  const repositoryUrl = useParameter<string>(PARAM_KEY.REPO, null);
+  const repositoryUrl = useParameter<string>(PARAM_KEY.REPO);
   const branch = useParameter<string>(PARAM_KEY.BRANCH, 'main');
-  const filePath = useParameter<string>(PARAM_KEY.FILE_PATH, null);
+  const filePath = useParameter<string>(PARAM_KEY.FILE_PATH);
 
   const api = useStorybookApi();
   const [disabled, setDisabled] = useState(false)
@@ -42,7 +42,7 @@ export const Tool = function MyAddonSelector() {
       href={stackblitzUrl}
       onClick={(e: MouseEvent) => disabled && e.preventDefault()}
       target="_blank"
-      title="Open in StackBlitz and make a pull request"
+      title="Open in StackBlitz instant dev environment"
     >
       <CodeflowLogo style={{width: 18, margin: '0 -2px'}} />
     </IconButton>
