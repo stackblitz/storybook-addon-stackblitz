@@ -63,3 +63,9 @@ export const Primary: Story = {
 
 - `yarn start` runs babel in watch mode and starts Storybook
 - `yarn build` build and package your addon code
+
+## Addon icon
+
+(for Storybook [integration catalog](https://storybook.js.org/integrations))
+
+![icon](https://github.com/stackblitz/storybook-addon-stackblitz/assets/1511906/0c4fe6db-5acd-4c81-878e-36ae5d1595f8)
