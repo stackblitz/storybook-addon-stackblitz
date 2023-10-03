@@ -1,7 +1,24 @@
 # Storybook Addon StackBlitz
 Create a one-click Pull Request environment right from your component
 
-## How to use it?
+## Installation
+
+yarn:
+```bash
+yarn add --dev @stackblitz/storybook-addon-stackblitz
+```
+
+npm:
+```bash
+npm install @stackblitz/storybook-addon-stackblitz --save-dev
+```
+
+pnpm:
+```bash
+pnpm add --save-dev @stackblitz/storybook-addon-stackblitz
+```
+
+## Usage
 
 Add the following to your `.storybook/main.ts` exports:
 
