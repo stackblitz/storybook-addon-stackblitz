@@ -20,15 +20,15 @@ pnpm add --save-dev @stackblitz/storybook-addon-stackblitz
 
 ## Usage
 
-Add the following to your `.storybook/main.ts` exports:
+Add the following to your `.storybook/main.ts` (or `.storybook/main.js`) exports:
 
 ```typescript
 export default {
-  addons: ['@storybook/addon-storysource'],
+  addons: ['@stackblitz/storybook-addon-stackblitz'],
 };
 ```
 
-Configure the repository URL in the `.storybook/preview.ts`:
+Configure the repository URL in the `.storybook/preview.ts` (or `.storybook/preview.js`):
 ```typescript
 export default {
   parameters: {
