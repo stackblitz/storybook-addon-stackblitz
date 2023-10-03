@@ -1,6 +1,6 @@
 {
   "name": "@stackblitz/storybook-addon-stackblitz",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Create a one-click Pull Request environment right from your component",
   "keywords": [
     "storybook-addons",
