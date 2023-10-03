@@ -1,3 +1,16 @@
+# v0.0.2 (Tue Oct 03 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@sulco](https://github.com/sulco))
+- Add integration icon for the catalog ([@sulco](https://github.com/sulco))
+
+#### Authors: 1
+
+-  Tomek Sułkowski ([@sulco](https://github.com/sulco))
+
+---
+
 # v0.0.1 (Tue Oct 03 2023)
 
 #### 🐛 Bug Fix
