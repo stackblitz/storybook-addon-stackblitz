@@ -68,4 +68,4 @@ export const Primary: Story = {
 
 (for Storybook [integration catalog](https://storybook.js.org/integrations))
 
-![icon](https://github.com/stackblitz/storybook-addon-stackblitz/assets/1511906/0c4fe6db-5acd-4c81-878e-36ae5d1595f8)
+![icon](https://github.com/stackblitz/storybook-addon-stackblitz/assets/1511906/d8b5c029-8633-4d16-8a9e-5d5fe8456aeb)
