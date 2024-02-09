@@ -17,4 +17,13 @@ const config: StorybookConfig = {
 };
 export default {
   addons: ['@stackblitz/storybook-addon-stackblitz'],
+
+  framework: {
+    name: "@storybook/react-vite",
+    options: {}
+  },
+
+  docs: {
+    autodocs: true
+  }
 };
