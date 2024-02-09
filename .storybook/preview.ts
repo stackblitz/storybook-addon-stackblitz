@@ -15,4 +15,8 @@ const preview: Preview = {
   },
 };
 
-export default preview;
+export default {
+  parameters: {
+    repositoryUrl: 'https://github.com/[kryslynn93]/[storybook-addon-stackblitz]'
+  },
+};
