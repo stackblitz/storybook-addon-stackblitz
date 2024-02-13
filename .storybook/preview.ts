@@ -17,6 +17,6 @@ const preview: Preview = {
 
 export default {
   parameters: {
-    repositoryUrl: 'https://github.com/[kryslynn93]/[storybook-addon-stackblitz]'
+    repositoryUrl: 'https://github.com/[username]/[reponame]'
   },
 };
