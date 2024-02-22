@@ -15,4 +15,15 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
 };
-export default config;
+export default {
+  addons: ['@stackblitz/storybook-addon-stackblitz'],
+
+  framework: {
+    name: "@storybook/react-vite",
+    options: {}
+  },
+
+  docs: {
+    autodocs: true
+  }
+};
