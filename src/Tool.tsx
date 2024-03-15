@@ -1,6 +1,6 @@
 import React, { useState, MouseEvent } from "react";
 import { useParameter, useStorybookApi } from "@storybook/manager-api";
-import { IconButton } from "@storybook/components";
+import { IconButton, Link } from "@storybook/components";
 import { PARAM_KEY, TOOL_ID } from "./constants";
 import CodeflowLogo from "./components/CodeflowLogo";
 
@@ -18,6 +18,7 @@ export const Tool = function MyAddonSelector() {
     return null;
   }
 
+  console.log({repositoryUrl})
   if (!repositoryUrl && !disabled) {
     console.warn(`"${PARAM_KEY}" parameter not defined. Make sure to configure it in your story.`);
     setDisabled(true);
@@ -35,16 +36,18 @@ export const Tool = function MyAddonSelector() {
     stackblitzUrl = stackblitzUrl.replaceAll(/(?<!:)\/\//g, '/')
   }
 
+  if (disabled) {
+    return <IconButton key={TOOL_ID} title="No repository URL defined" disabled><CodeflowLogo style={{width: 18, margin: '0 -2px'}} /></IconButton>;
+  }
+
   return (
-    <IconButton
-      disabled={disabled}
+    <Link
       key={TOOL_ID}
       href={stackblitzUrl}
-      onClick={(e: MouseEvent) => disabled && e.preventDefault()}
       target="_blank"
       title="Open in StackBlitz instant dev environment"
     >
       <CodeflowLogo style={{width: 18, margin: '0 -2px'}} />
-    </IconButton>
+    </Link>
   );
 };
