@@ -1,6 +1,6 @@
 {
   "name": "@stackblitz/storybook-addon-stackblitz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Create a one-click Pull Request environment right from your component",
   "keywords": [
     "storybook-addons",
@@ -82,6 +82,17 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "bundler": {
+    "exportEntries": [
+      "src/index.ts"
+    ],
+    "managerEntries": [
+      "src/manager.ts"
+    ],
+    "previewEntries": [
+      "src/preview.ts"
+    ]
   },
   "storybook": {
     "displayName": "StackBlitz",
